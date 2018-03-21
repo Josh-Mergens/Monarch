@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Yummly API</title>
+</head>
+
+<body>
+
+<form id = "buttonForm">
+    <label for="button-input"> Add a recipe:  </label>
+    <input type=text id="button-input">
+
+    <input id="addButton" type = "submit" value="submit">
+</form>
+
+<div id = "buttonChoices"> 
+</div>
+
+<div id="displayRecipe">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var buttonArray = ["Onion Soup"];
+var ingredientArray = [];
+
+function displayApi() {
+
+var recipeInput = $(this).attr("data-name");
+var baseURL = "http://api.yummly.com/v1/api/recipes?_app_id=87b4ae84&_app_key=1c317fe13d2c932506f2c1aab86f67b6&q="
+var queryURL = baseURL + recipeInput;
+console.log(queryURL);
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response){
+  console.log(response);
+  var newDiv = $("<div>");
+  newDiv.addClass("addedDiv");
+  var container = $("#displayRecipe");
+  container.append(newDiv);
+
+var recipeTitle = JSON.stringify(response.matches[0].recipeName);
+newDiv.append("<h1>" + recipeTitle + "</h1>");
+
+var ingredientArray = response.matches[0].ingredients;
+console.log(ingredientArray);
+
+var ingredientTitleString = "Ingredients";
+newDiv.append("<h3>" + ingredientTitleString + "</h3>");
+
+for (i = 0; i < ingredientArray.length; i++){
+    var recipeIngredients = JSON.stringify(response.matches[0].ingredients[i]);
+    recipeIngredients = recipeIngredients.replace('[',' ');
+    recipeIngredients = recipeIngredients.replace(']',' ');
+    recipeIngredients = recipeIngredients.replace(/["]+/g,' ');
+    newDiv.append(recipeIngredients + "<br>");
+
+    $("#displayRecipe").prepend(newDiv);    
+
+}
+
+
+
+});
+};
+
+
+function displayButtons() {
+    $("#buttonChoices").empty();
+
+    for (var i = 0; i<buttonArray.length; i++) {
+        
+        var newButton = $("<button>");
+        newButton.addClass("displayRecInst");
+        newButton.attr("data-name", buttonArray[i]);
+        newButton.append(buttonArray[i]);
+        $("#buttonChoices").append(newButton);
+    }
+};
+
+$("#addButton").on("click", function(event) {
+
+event.preventDefault();
+
+var addButton = $("#button-input").val().trim();
+
+buttonArray.push(addButton);
+console.log(buttonArray);
+
+
+displayButtons();
+});
+
+
+
+$(document).on("click", ".displayRecInst", displayApi);
+displayButtons();
+
+</script>
+</body>
+</html>
