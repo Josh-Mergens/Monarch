@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GIPHY API Utilization</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs|Walter+Turncoat" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+  
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron" id="mainHeading">
+      <h1>Youtube API Test</h1>
+    </div>
+
+    <form id="GIPHS-form">
+            <label for="GIPHS-input">Search youtube keyword</label>
+            <input type="text" id="keyword-input">
+            <br>
+      
+            <!-- Button when clicked adds new movies -->
+            <input class="btn btn-default" id="add-keyword" type="submit" value="Add a GIPH">
+          </form>
+
+    <!-- GIFs will Get Dumped Dere -->
+    <div id="videos-view"></div>
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons"></div>
+
+
+
+      <!-- // Initial array of GIFs to search for
+    //   var GIPHSarray = ["Dexter's Laboratory", "Ed, Edd n Eddy", "Johnny Bravo", "Rugrats", "Hey Arnold", "The Magic School Bus", "Spongebob Squarepants", "Rocket Power", "The Wild Thornberrys", "CatDog"];
+
+      // displayGIFInfo function updates the HTML to show the GIFs
+
+
+    // Sample build url: https://www.googleapis.com/youtube/v3/search?part=snippet%2C%20id&q=dogs&type=video&key=AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0
+
+      // On click event handler for when a GIF button is clicked.
+    //   $(document).on("click", ".GIPH-btn", displayGIPHInfo);
+
+      // Initial array of GIFs is displayed regardless of if the user adds GIFs -->
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/youtube.js"></script>
+  <script src="assets/javascript/jquery.fancybox.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+</body>
+
+</html>
