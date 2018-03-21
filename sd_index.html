@@ -25,7 +25,7 @@
             </div>
             <div id="navbarMenuHeroA" class="navbar-menu">
               <div class="navbar-end">
-                <a class="navbar-item is-active">
+                <a class="navbar-item">
                   Your Shiggings
                 </a>
                 <a class="navbar-item">
@@ -51,15 +51,13 @@
           </h2>
           <div class="field is-grouped">
             <p class="control has-icons-left is-expanded">
-              <input class="input" type="text" placeholder="Let's find something shigging delicious">
+              <input class="input" id="keyword-input" type="text" placeholder="Let's find something shigging delicious">
               <span class="icon is-small is-left">
                 <i class="fas fa-utensils"></i>
-
-                "></i>
               </span>
             </p>
             <p class="control">
-              <a class="button is-info">
+              <a class="button is-info" id="add-keyword">
                 Search
               </a>
             </p>
@@ -68,7 +66,8 @@
       </div>
     <!-- Youtube API display -->
       <div class="columns is-mobile">
-        <div class="column is-three-fifths is-offset-one-fifth"></div>
+        <div class="column is-three-fifths is-offset-one-fifth" id="videos-view"></div>
+        <div class="button" id="buttons-view"></div>
       </div>
     <!-- Food API Display -->
       <div class="columns is-mobile">
@@ -91,5 +90,8 @@
         </nav>
       </div> -->
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="YouTube API/assets/javascript/youtube.js"></script>
   </body>
 </html>
