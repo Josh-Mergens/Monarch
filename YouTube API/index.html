@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs|Walter+Turncoat" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   
 
 </head>
@@ -18,6 +19,24 @@
     <div class="jumbotron" id="mainHeading">
       <h1>Youtube API Test</h1>
     </div>
+  
+  <div class="container">
+    <input id="txtEmail" type="email" placeholder="Email">
+
+    <input id="txtPassword" type="password" placeholder="Password">
+
+    <button id="btnLogin" class="btn btn-action">
+      Log in
+    </button>
+
+    <button id="btnSignUp" class ="btn btn-secondary">
+      Sign Up
+    </button>
+
+    <button id="btnLogout" class="btn btn-action hide">
+      Log out
+    </button>
+  </div>
 
     <form id="GIPHS-form">
             <label for="GIPHS-input">Search youtube keyword</label>
@@ -52,6 +71,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/javascript/youtube.js"></script>
   <script src="assets/javascript/jquery.fancybox.min.js"></script>
+
 
   <script>
     $(document).ready(function() {
