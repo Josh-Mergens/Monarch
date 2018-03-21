@@ -9,7 +9,7 @@ var searchResults;
 
     var params = $.param({
         part: 'snippet, id',
-        maxResults: '10',
+        maxResults: '1',
         q: keyword,
         type: 'video',    
         key: 'AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0'
@@ -116,7 +116,7 @@ function showNextPage() {
 
     var params = $.param({
         part: 'snippet, id',
-        maxResults: '10',
+        maxResults: '1',
         q: keyword,
         pageToken: token,
         type: 'video',    
