@@ -1,7 +1,10 @@
 var keyword ="";
 var ingredientArray = [];
+var topics =[];
 
 function displayApi() {
+
+$("#displayRecipe").empty();
 
 var recipeInput = keyword;
 var corsProxy = "https://cors-anywhere.herokuapp.com/";
@@ -47,12 +50,31 @@ $("#displayRecipe").append(newDiv);
 });
 };
 
+function makeButtons() {
+    $("#searchButtons").empty();
 
-$("#add-keyword").on("click", function(event) {
+    for (var i = 0; i < topics.length; i++) {
+        var a = $('<button>');
+            a.addClass("image-button");
+            a.attr("data-name", topics[i]);
+            a.text(topics[i]);
+            $("#searchButtons").append(a);
+    }
+}
+
+
+
+
+$(".input").keypress(function(event) {
+    if (event.which == 13) {
     event.preventDefault();
     // This line grabs the input from the textbox
     keyword = $("#keyword-input").val().trim();
-
+    topics.push(keyword)
     // Initalizes function to immediately display the added button
     displayApi();
+    makeButtons();
+    }
   });
+
+  $(document).on("click", ".image-button", displayApi);

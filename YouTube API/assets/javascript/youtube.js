@@ -1,5 +1,6 @@
 var keyword ="";
 var searchResults;
+var topics=[];
 
 
   function doAjaxCall() {
@@ -74,9 +75,7 @@ var searchResults;
     var nextPageToken = data.nextPageToken;
     var prevPageToken = data.prevPageToken;
 
-    
-    // var ytVideos = JSON.parse(searchResults);
-    
+        
     console.log("Response length: " + data.items.length)
     
         $.each(data.items, function(i, item){ 
@@ -169,24 +168,45 @@ function showVideos(item) {
 function showButtons(prevPageToken, nextPageToken) {
     if (!prevPageToken) {
         var buttonOutput = '<div class="button-container">' +
-        '<button id="next-button" class="paging-button" data-token="'+nextPageToken+'" data-query="'+q+'" onclick="showNextPage();">Next Page</button></div>';
+        '<button id="next-button" class="paging-button" data-token="'+nextPageToken+'" data-query="'+q+'" onclick="showNextPage();">Next Video</button></div>';
     }
 
     else {
-        var buttonOutput = '<div class="button-container">"' +'<button id="prev-button" class="paging-button" data-token="'+prevPageToken+'" data-query="'+q+'" onclick="showPrevPage();">Prev Page</button>' + '<button id="next-button" class="paging-button" data-token="'+nextPageToken+'" data-query="'+q+'" onclick="showNextPage();">Next Page</button></div>'
+        var buttonOutput = '<div class="button-container">"' +'<button id="prev-button" class="paging-button" data-token="'+prevPageToken+'" data-query="'+q+'" onclick="showPrevPage();">Prev Video</button>' + '<button id="next-button" class="paging-button" data-token="'+nextPageToken+'" data-query="'+q+'" onclick="showNextPage();">Next Video</button></div>'
     }
 
     return buttonOutput;
 }
 
+function makeButtons() {
+    $("#searchButtons").empty();
+
+    for (var i = 0; i < topics.length; i++) {
+        var a = $('<button>');
+            a.addClass("image-button");
+            a.attr("data-name", topics[i]);
+            a.text(topics[i]);
+            $("#searchButtons").append(a);
+    }
+}
+
+
 
   // Event handlers when user clicks add GIF to add GIF.
   
-  $("#add-keyword").on("click", function(event) {
+  $(".input").keypress(function(event) {
+    if (event.which == 13) {
     event.preventDefault();
     // This line grabs the input from the textbox
     keyword = $("#keyword-input").val().trim();
+    topics.push(keyword)
+    console.log(topics);
+
 
     // Initalizes function to immediately display the added button
     doAjaxCall();
+    makeButtons();
+    }
   });
+
+  $(document).on("click", ".image-button", doAjaxCall);
