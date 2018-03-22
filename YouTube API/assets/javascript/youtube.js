@@ -17,13 +17,6 @@ var searchResults;
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    // var ytApiKey = "AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0";
-    // var itemId = "QwievZ1Tx-8"
-    // var queryURL = 'https://www.googleapis.com/youtube/v3/videos?id=wievZ1Tx-8&key=AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0&fields=items(snippet(channelId,title,categoryId))&part=snippet';
-    // "https://www.googleapis.com/youtube/v3/search"
-    
-    // Creating an AJAX call for the specific GIF button being clicked
-
     q = $("#add-keyword").val();
 
     $.ajax({
@@ -70,13 +63,6 @@ var searchResults;
     });
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
-
-    // var ytApiKey = "AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0";
-    // var itemId = "QwievZ1Tx-8"
-    // var queryURL = 'https://www.googleapis.com/youtube/v3/videos?id=wievZ1Tx-8&key=AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0&fields=items(snippet(channelId,title,categoryId))&part=snippet';
-    // "https://www.googleapis.com/youtube/v3/search"
-    
-    // Creating an AJAX call for the specific GIF button being clicked
 
     q = $("#add-keyword").val();
 
@@ -125,13 +111,6 @@ function showNextPage() {
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    // var ytApiKey = "AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0";
-    // var itemId = "QwievZ1Tx-8"
-    // var queryURL = 'https://www.googleapis.com/youtube/v3/videos?id=wievZ1Tx-8&key=AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0&fields=items(snippet(channelId,title,categoryId))&part=snippet';
-    // "https://www.googleapis.com/youtube/v3/search"
-    
-    // Creating an AJAX call for the specific GIF button being clicked
-
     q = $("#add-keyword").val();
 
     $.ajax({
@@ -160,25 +139,6 @@ function showNextPage() {
 
     });
 };
-
-    // for (i=0; i < response.items.length; i++) {
-    //     var newDiv = $("<div>");
-    //     var vidTitle = $("<p>").text("Title: " + response.items[i].snippet.title);
-    //     newDiv.append(vidTitle);
-        
-    //     var ytVideo = $("<iframe/>");
-    //     ytVideo.attr({
-    //         width: 560,
-    //         height: 315,
-    //         src: 'https://www.youtube.com/embed/' + response.items[i].id.videoId,
-    //         frameborder: 0
-        
-    //     });
-    //     newDiv.append(ytVideo);
-    //     var vidDescription = $("<p>").text("Description: " + response.items[i].snippet.description);
-    //     newDiv.append(vidDescription);
-    //     $("#videos-view").append(newDiv)
-    // }
 
 
 
@@ -218,52 +178,6 @@ function showButtons(prevPageToken, nextPageToken) {
 
     return buttonOutput;
 }
-
-    // var divVideos = $("<div>");
-    // divVideos.attr({"id": "videos-div"});
-
-    // for(i=0; i < response.items.length; i++) {
-    //     var vidSource = "https://www.youtube.com/embed/" + response.items[i].id.videoId;
-    //     var vidDescription = response.items[i].snippet.description;
-    //     var vidTitle = response.items[i].snippet.title;
-    //     console.log(vidSource)
-    //     console.log(vidDescription)
-    //     console.log(vidTitle)
-
-    
-        // var loadVideos = $("<iframe id='ytplayer' width='560' height='315' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>");
-        // $("#ytplayer").attr({"src": vidSource})
-        // $("#videos-view").append(loadVideos)
-    // }
-
-    // $("#videos-view").append(divVideos)
-
-//     });
-
-//   }
-  // Function to create buttons that contain the categories that we'll search on the GIPHY API
-//   function renderButtons() {
-
-//     // Deletes what buttons was previously there and recreates all the buttons with any new buttons that were added
-//     $("#buttons-view").empty();
-
-//     // Looping through the array of GIFs
-//     for (var i = 0; i < GIPHSarray.length; i++) {
-
-//         var a = $("<button>");
-//         // Adding a classes for buttons so it can be called with Jquery and styled with Bootstrap
-//         a.addClass("GIPH-btn");
-//         a.addClass("btn");
-//         a.addClass("btn-default");
-//         // Adding data attribute to each of the buttons based on the index of the element in the GIPHSarray
-//         a.attr("data-name", GIPHSarray[i]);
-//         // Providing the initial button text
-//         a.text(GIPHSarray[i]);
-//         // Adding buttons to the div
-//         $("#buttons-view").append(a);
-//         }
-
-//     }
 
 
   // Event handlers when user clicks add GIF to add GIF.
