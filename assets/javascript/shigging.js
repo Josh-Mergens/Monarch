@@ -206,7 +206,7 @@ function showVideos(item) {
     '<img src="'+thumb+'">' +
     '</div>' +
     '<div class="list-right">' +
-    '<h3><a data-fancybox href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
+    '<h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
     '<small>By <span class="cTitle">'+channelTitle+'</span> on '+publishedAt+'</small>' +
     '<p>'+description+'</p>' + 
     '</div>' +
@@ -240,6 +240,14 @@ $("#add-keyword").on("click", function(event) {
 
     // Initalizes function to immediately display the added button
 
+});
+
+$("[data-fancybox]").fancybox({
+	iframe : {
+		css : {
+			width : '600px'
+		}
+	}
 });
 
 $(".input").keypress(function(event) {
