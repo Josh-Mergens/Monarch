@@ -231,13 +231,13 @@ function showButtons(prevPageToken, nextPageToken) {
     return buttonOutput;
 }
 
-$("[data-fancybox]").fancybox({
-	iframe : {
-		css : {
-			width : '600px'
-		}
-	}
-});
+// $("[data-fancybox]").fancybox({
+// 	iframe : {
+// 		css : {
+// 			width : '600px'
+// 		}
+// 	}
+// });
 
 
 $(".input").keypress(function(event) {
