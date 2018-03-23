@@ -242,6 +242,14 @@ $("#add-keyword").on("click", function(event) {
 
 });
 
+$("[data-fancybox]").fancybox({
+	iframe : {
+		css : {
+			width : '600px'
+		}
+	}
+});
+
 $(".input").keypress(function(event) {
     if (event.which == 13) {
     event.preventDefault();
