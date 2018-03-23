@@ -20,7 +20,7 @@ var topics =[];
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    q = $("#add-keyword").val();
+    q = $(".input").val();
 
     $.ajax({
       url: url,
@@ -123,7 +123,7 @@ function showPrevPage() {
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    q = $("#add-keyword").val();
+    q = $(".input").val();
 
     $.ajax({
       url: url,
@@ -167,7 +167,7 @@ function showNextPage() {
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    q = $("#add-keyword").val();
+    q = $(".input").val();
 
     $.ajax({
       url: url,
@@ -207,7 +207,7 @@ function showVideos(item) {
     '<iframe> width="560" height="315" src="http://www.youtube.com/embed/'+videoId+'" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>'+
     '</div>' +
     '<div class="list-right">' +
-    '<h3><a data-fancybox href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
+    '<h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
     '<small>By <span class="cTitle">'+channelTitle+'</span> on '+publishedAt+'</small>' +
     '<p>'+description+'</p>' + 
     '</div>' +
@@ -231,18 +231,6 @@ function showButtons(prevPageToken, nextPageToken) {
     return buttonOutput;
 }
 
-// Upon clicking "submit" button, saves the value of the inputted text
-// to the variable global variable "keyword".
-$("#add-keyword").on("click", function(event) {
-    event.preventDefault();
-    // This line grabs the input from the textbox
-    keyword = $("#keyword-input").val().trim();
-    topics.push(keyword)
-
-    // Initalizes function to immediately display the added button
-
-});
-
 $("[data-fancybox]").fancybox({
 	iframe : {
 		css : {
@@ -250,6 +238,7 @@ $("[data-fancybox]").fancybox({
 		}
 	}
 });
+
 
 $(".input").keypress(function(event) {
     if (event.which == 13) {
