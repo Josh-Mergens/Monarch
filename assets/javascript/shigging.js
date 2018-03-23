@@ -20,7 +20,7 @@ var topics =[];
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    q = $("#add-keyword").val();
+    q = $(".input").val();
 
     $.ajax({
       url: url,
@@ -123,7 +123,7 @@ function showPrevPage() {
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    q = $("#add-keyword").val();
+    q = $(".input").val();
 
     $.ajax({
       url: url,
@@ -167,7 +167,7 @@ function showNextPage() {
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
     console.log(url);
 
-    q = $("#add-keyword").val();
+    q = $(".input").val();
 
     $.ajax({
       url: url,
@@ -229,18 +229,6 @@ function showButtons(prevPageToken, nextPageToken) {
 
     return buttonOutput;
 }
-
-// Upon clicking "submit" button, saves the value of the inputted text
-// to the variable global variable "keyword".
-$("#add-keyword").on("click", function(event) {
-    event.preventDefault();
-    // This line grabs the input from the textbox
-    keyword = $("#keyword-input").val().trim();
-    topics.push(keyword)
-
-    // Initalizes function to immediately display the added button
-
-});
 
 $("[data-fancybox]").fancybox({
 	iframe : {
