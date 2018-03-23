@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
@@ -41,7 +42,7 @@
           </div>
         </nav>
       </div>
-    
+
       <!-- Hero content: will be in the middle -->
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -80,6 +81,27 @@
         <div class="column is one-half is-offset-one-fifth" id="buttons"></div>
       </div>
     </section>
+
+    <!-- login box -->
+    <div class="container">
+
+      <input id="txtEmail" type="email" placeholder="email">
+
+      <input id="txtPassword" type="password" placeholder="password">
+
+      <button id="btnLogin" class="btn btn-action">
+        Log In
+      </button>
+
+      <button id="btnSignUp" class="btn btn-secondary">
+        Sign Up
+      </button>
+
+      <button id="btnLogout" class="btn btn-action-hide">
+        Log Out
+      </button>
+
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="YouTube API/assets/javascript/youtube.js"></script>
