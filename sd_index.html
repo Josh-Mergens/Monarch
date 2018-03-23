@@ -13,7 +13,7 @@
   </head>
   <body>
 
-    <section class="hero is-primary is-medium">
+    <section class="hero is-primary is-small">
       <!-- Hero head: will stick at the top -->
       <div class="hero-head">
         <nav class="navbar">
@@ -53,7 +53,61 @@
           </h1>
           <h2 class="subtitle">
             because food
-          </h2>
+          </h2> 
+
+        </section>
+
+
+      <!-- Email Signup -->
+      <section class="hero is-primary is-small">
+          <div class="container">
+      <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Email">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-pulled-left">
+            <button class="button is-link is-outlined">
+              Login
+            </button>
+          </p>
+          <p class="control is-pulled-left">
+              <button class="button is-link is-outlined">
+                Sign Up
+              </button>
+            </p>
+            <p class="control is-pulled-left">
+                <button class="button is-link is-outlined">
+                  Logout
+                </button>
+              </p>
+              <br>
+              <br>
+        </div>
+        </div>
+        </section>
+      
+
+
+
+      <!--Search Form -->
+      <section class="hero is-primary is-small">
+          <div class="container">
           <div class="field is-grouped">
             <p class="control has-icons-left is-expanded">
               <input class="input" id="keyword-input" type="text" type="submit" placeholder="Let's find something shigging delicious">
@@ -61,18 +115,18 @@
                   <i class="fas fa-utensils"></i>
                 </span>
             </p>
-            <!-- <p class="control">
-              <a class="button is-info" id="add-keyword" value="submit">
-                Search
-              </a>
-            </p> -->
           </div>
           <div class="columns is-mobile">
             <div class="column" id="searchButtons"></div>
           </div>
         </div>
       </div>
+    </div>
+      </section>
+
     <!-- Youtube API display -->
+    <section class="hero is-primary">
+        <div class="container">
       <div class="columns is-mobile">
         <div class="column is-one-half is-offset-one-fifth" id="videos-view"></div>
     <!-- Food API Display -->
@@ -82,7 +136,9 @@
       <div class="columns is-mobile">
         <div class="column is one-half is-offset-one-fifth" id="buttons"></div>
       </div>
-    </section>
+      </div>
+      </section>
+    
 
     
     <!-- <script src="YouTube API/assets/javascript/youtube.js"></script>
