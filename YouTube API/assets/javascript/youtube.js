@@ -2,105 +2,6 @@ var keyword ="";
 var searchResults;
 var topics=[];
 
-//   // Initialize Firebase
-//   var config = {
-//     apiKey: "AIzaSyC_HsCc08nxb6JP0CyGZq3CxIJrhKsbplU",
-//     authDomain: "project-monarch-e3503.firebaseapp.com",
-//     databaseURL: "https://project-monarch-e3503.firebaseio.com",
-//     projectId: "project-monarch-e3503",
-//     storageBucket: "project-monarch-e3503.appspot.com",
-//     messagingSenderId: "181317180117"
-//   };
-//   firebase.initializeApp(config);
-
-// var database = firebase.database();
-// var userRef = database.ref();
-// var newDataPoint = "";
-// var user = "";
-// var password = "";
-
-// // Import Admin SDK
-// // var admin = require("firebase-admin");
-
-// // Get a databse reference to our blog
-// // var db = admin.database();
-// // var ref = db.ref("server/saving-data-fireblog");
-
-// //   Get elements
-
-// const txtEmail = document.getElementById('txtEmail');
-// const txtPassword = document.getElementById('txtPassword');
-// const btnLogin = document.getElementById('btnLogin');
-// const btnSignUp = document.getElementById('btnSignUp');
-// const btnLogout = document.getElementById('btnLogout');
-
-// // Add login event
-// btnLogin.addEventListener('click', e => {
-//     // Get email and pass
-//     const email = txtEmail.value;
-//     const pass = txtPassword.value;
-//     const auth = firebase.auth();
-
-//     // Sign in
-//     const promise = auth.signInWithEmailAndPassword(email, pass);
-//     promise.catch(e => console.log(e.message));
-// });
-
-// // Add signup event
-// btnSignUp,addEventListener('click', e => {
-//     // Get email and pass
-//     const email = txtEmail.value;
-//     const pass = txtPassword.value;
-//     const auth = firebase.auth();
-
-//     // Sign in
-//     const promise = auth.createUserWithEmailAndPassword(email, pass);
-//     promise.catch(e => console.log(e.message));
-// });
-
-// btnLogout.addEventListener('click', e => {
-//     firebase.auth().signOut();
-// });
-
-// function writeUserData(user, email) {
-//     user = $("#txtEmail").val();
-//     var userSep = user.split("@");
-//     firebase.database().ref('users/' + userSep[0]).set({
-//         password: password
-//     })
-// }
-
-// // Add a realtime listener
-// firebase.auth().onAuthStateChanged(firebaseUser => {
-//     if (firebaseUser) {
-//         console.log(firebaseUser);
-//         btnLogout.classList.remove('hide');
-//         user = $("#txtEmail").val();
-//         password = $("#txtPassword").val();
-
-//         // newDataPoint = userRef.push({
-//         //     name: user,
-//         //     password: password,
-//         // });
-//         writeUserData();
-//         // userRef.set({
-//         //     user: user {
-//         //         password: password}
-//         //     }
-//         // );
-
-//         // var postId = userRef.getKey();
-//         // console.log(postId)
-
-
-//     }
-
-//     else {
-//         console.log('not logged in')
-//         btnLogout.classList.add('hide');
-//     }
-// });
-
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyC_HsCc08nxb6JP0CyGZq3CxIJrhKsbplU",
@@ -161,13 +62,12 @@ btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
 
-function writeUserData(user, email) {
-    user = $("#txtEmail").val();
-    var userSep = user.split("@");
-    firebase.database().ref('users/' + userSep[0]).set({
-        password: password
-    })
-}
+// function writeUserData(email, password) {
+//     var userSep = email.split("@");
+//     firebase.database().ref('users/' + userSep[0]).set({
+//         password: password
+//     })
+// }
 
 // Add a realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -177,20 +77,10 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         user = $("#txtEmail").val();
         password = $("#txtPassword").val();
 
-        // newDataPoint = userRef.push({
-        //     name: user,
-        //     password: password,
-        // });
-        writeUserData();
-        // userRef.set({
-        //     user: user {
-        //         password: password}
-        //     }
-        // );
-
-        // var postId = userRef.getKey();
-        // console.log(postId)
-
+        var userSep = user.split("@");
+        firebase.database().ref('users/' + userSep[0]).set({
+            password: password
+        });
 
     }
 
@@ -388,8 +278,6 @@ function makeButtons() {
             $("#searchButtons").append(a);
     }
 }
-
-
 
   // Event handlers when user clicks add GIF to add GIF.
   

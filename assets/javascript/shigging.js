@@ -3,6 +3,28 @@ var searchResults;
 var ingredientArray = [];
 var topics =[];
 
+ // Initialize Firebase
+//  var config = {
+//     apiKey: "AIzaSyC_HsCc08nxb6JP0CyGZq3CxIJrhKsbplU",
+//     authDomain: "project-monarch-e3503.firebaseapp.com",
+//     databaseURL: "https://project-monarch-e3503.firebaseio.com",
+//     projectId: "project-monarch-e3503",
+//     storageBucket: "project-monarch-e3503.appspot.com",
+//     messagingSenderId: "181317180117"
+//   };
+//   firebase.initializeApp(config);
+
+//     const txtEmail = document.getElementById('txtEmail');
+//     const txtPassword = document.getElementById('txtPassword');
+//     const btnLogin = document.getElementById('btnLogin');
+//     const btnSignUp = document.getElementById('btnSignUp');
+//     const btnLogout = document.getElementById('btnLogout');
+
+// var database = firebase.database();
+// var userRef = database.ref();
+// var newDataPoint = "";
+// var user = "";
+// var password = "";
 
   function doAjaxCall() {
     // Handles call to Youtube API
@@ -207,7 +229,7 @@ function showVideos(item) {
     '<iframe> width="560" height="315" src="http://www.youtube.com/embed/'+videoId+'" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>'+
     '</div>' +
     '<div class="list-right">' +
-    '<h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
+    '<h3><a data-fancybox href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
     '<small>By <span class="cTitle">'+channelTitle+'</span> on '+publishedAt+'</small>' +
     '<p>'+description+'</p>' + 
     '</div>' +
@@ -239,6 +261,14 @@ $("[data-fancybox]").fancybox({
 	}
 });
 
+
+$("#add-keyword").on("click", function(event) {
+    event.preventDefault();
+    keyword = $("#keyword-input").val().trim();
+    topics.push(keyword)
+    doAjaxCall();
+
+});
 
 $(".input").keypress(function(event) {
     if (event.which == 13) {
