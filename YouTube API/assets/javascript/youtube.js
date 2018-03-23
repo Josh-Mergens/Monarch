@@ -119,9 +119,8 @@ var user = "";
 var password = "";
 
 // Import Admin SDK
-// var admin = require("firebase-admin");
 
-// Get a databse reference to our blog
+// Get a database reference to our blog
 // var db = admin.database();
 // var ref = db.ref("server/saving-data-fireblog");
 
@@ -177,19 +176,19 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         user = $("#txtEmail").val();
         password = $("#txtPassword").val();
 
-        // newDataPoint = userRef.push({
-        //     name: user,
-        //     password: password,
-        // });
+         newDataPoint = userRef.push({
+             name: user,
+             password: password,
+         });
         writeUserData();
-        // userRef.set({
-        //     user: user {
-        //         password: password}
-        //     }
-        // );
+        userRef.set({
+            user: user,
+            password: password
+            }
+        );
 
-        // var postId = userRef.getKey();
-        // console.log(postId)
+        var postId = userRef.getKey();
+        console.log(postId)
 
 
     }
@@ -202,7 +201,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 
   function doAjaxCall() {
-    
+
     $("#videos-view").empty();
     $("#buttons").empty();
 
@@ -210,7 +209,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         part: 'snippet, id',
         maxResults: '1',
         q: keyword,
-        type: 'video',    
+        type: 'video',
         key: 'AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0'
     });
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
@@ -226,12 +225,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     var nextPageToken = data.nextPageToken;
     var prevPageToken = data.prevPageToken;
 
-    
+
     // var ytVideos = JSON.parse(searchResults);
-    
+
     console.log("Response length: " + data.items.length)
-    
-        $.each(data.items, function(i, item){ 
+
+        $.each(data.items, function(i, item){
 
             var result = showVideos(item);
 
@@ -248,7 +247,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   function showPrevPage() {
     var token = $("#prev-button").data('token');
     var q = $('#prev-button').data('query');
-    
+
     $("#videos-view").empty();
     $("#buttons").empty();
 
@@ -257,7 +256,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         maxResults: '1',
         q: keyword,
         pageToken: token,
-        type: 'video',    
+        type: 'video',
         key: 'AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0'
     });
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
@@ -273,10 +272,10 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     var nextPageToken = data.nextPageToken;
     var prevPageToken = data.prevPageToken;
 
-        
+
     console.log("Response length: " + data.items.length)
-    
-        $.each(data.items, function(i, item){ 
+
+        $.each(data.items, function(i, item){
 
             var result = showVideos(item);
 
@@ -293,7 +292,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 function showNextPage() {
     var token = $("#next-button").data('token');
     var q = $('#next-button').data('query');
-    
+
     $("#videos-view").empty();
     $("#buttons").empty();
 
@@ -302,7 +301,7 @@ function showNextPage() {
         maxResults: '1',
         q: keyword,
         pageToken: token,
-        type: 'video',    
+        type: 'video',
         key: 'AIzaSyBbcLfQsPms45781ZJd_5pwv-V3sj6G9C0'
     });
     var url = "https://www.googleapis.com/youtube/v3/search?" + params;
@@ -318,12 +317,12 @@ function showNextPage() {
     var nextPageToken = data.nextPageToken;
     var prevPageToken = data.prevPageToken;
 
-    
+
     // var ytVideos = JSON.parse(searchResults);
-    
+
     console.log("Response length: " + data.items.length)
-    
-        $.each(data.items, function(i, item){ 
+
+        $.each(data.items, function(i, item){
 
             var result = showVideos(item);
 
@@ -347,18 +346,18 @@ function showVideos(item) {
     var channelTitle = item.snippet.channelTitle;
     var publishedAt = item.snippet.publishedAt;
 
-    var result = '<li>' + 
-    '<div class="list-left">' + 
+    var result = '<li>' +
+    '<div class="list-left">' +
     '<img src="'+thumb+'">' +
     '</div>' +
     '<div class="list-right">' +
     '<h3><a data-fancybox href="http://wwww.youtube.com/watch?v='+videoId+'">'+title+'</a></h3>' +
     // '<h3><a class="various fancybox fancybox.iframe" src="http://wwww.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
     '<small>By <span class="cTitle">'+channelTitle+'</span> on '+publishedAt+'</small>' +
-    '<p>'+description+'</p>' + 
+    '<p>'+description+'</p>' +
     '</div>' +
-    '</li>' + 
-    '<div class="clearfix"></div>' + 
+    '</li>' +
+    '<div class="clearfix"></div>' +
     '';
 
     return result;
@@ -392,7 +391,7 @@ function makeButtons() {
 
 
   // Event handlers when user clicks add GIF to add GIF.
-  
+
   $(".input").keypress(function(event) {
     if (event.which == 13) {
     event.preventDefault();
