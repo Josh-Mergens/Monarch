@@ -204,7 +204,7 @@ function showVideos(item) {
     var result = '<li>' + 
     '<div class="list-left">' + 
     // '<img ="'+thumb+'">' +
-    '<iframe> width=560 height=315 src="http://www.youtube.com/embed/'+videoId+'" frameborder=0></iframe>'+
+    '<iframe> width="560" height="315" src="http://www.youtube.com/embed/'+videoId+'" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>'+
     '</div>' +
     '<div class="list-right">' +
     '<h3><a data-fancybox href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>' +
